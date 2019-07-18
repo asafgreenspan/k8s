@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworldweb-deployment
+  labels:
+    app: helloworldweb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: helloworldweb
+  template:
+    metadata:
+      labels:
+        app: helloworldweb
+    spec:
+      containers:
+      - name: ubuntunodejs
+        image: asafgreenspan/ubuntu:nodejs
+        ports:
+        - containerPort: 3000
